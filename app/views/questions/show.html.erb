@@ -1,0 +1,23 @@
+<h1><%= @question.title %></h1>
+
+<h3><%= @question.body %></h3>
+
+<span><b>Tags: </b></span>
+<% @question.tags.each do |tag|%>
+  <span><%=tag.description%> </span>
+<%end%>
+
+<p>Comments:</p>
+<ul>
+  <%@question.comments.each do |comment| %>
+  <li><%=comment.note %></li>
+  <% end %>
+</ul>
+
+
+<%@question.answers.each do |answer| %>
+  <%= render partial:'answers/show', layout: false, locals: {answer: answer} %>
+<% end %>
+
+
+<h4>NEW ANSWER FORM IF LOGGED IN</h4>

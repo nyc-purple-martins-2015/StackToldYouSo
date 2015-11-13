@@ -1,0 +1,7 @@
+<p><%=answer.content%></p>
+<p>Comments:</p>
+<ul>
+  <%answer.comments.each do |comment| %>
+  <li><%=comment.note %></li>
+  <% end %>
+</ul>

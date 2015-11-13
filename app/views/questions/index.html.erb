@@ -1,0 +1,4 @@
+<h1>Welcome to Stack Told You So!</h1>
+<%@questions.each do |question|%>
+  <%= render partial:'link', layout:false, locals: {question: question} %>
+<%end%>
