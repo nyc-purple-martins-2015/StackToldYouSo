@@ -20,14 +20,28 @@ FactoryGirl.define do
     note {Faker::Lorem.sentence}
     user
 
-      factory(:question_comment) do
-        association :commentable, factory: :question
-      end
+    factory(:question_comment) do
+      association :commentable, factory: :question
+    end
 
-      factory(:answer_comment) do
-        association :commentable, factory: :answer
-      end
+    factory(:answer_comment) do
+      association :commentable, factory: :answer
+    end
 
   end
+
+  factory(:vote) do
+    value {[-1, 1].sample}
+    user
+
+    factory(:question_vote) do
+      association :votable, factory: :question
+    end
+
+    factory(:answer_vote) do
+      association :votable, factory: :answer
+    end
+  end
+  
 end
 
