@@ -1,16 +1,34 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-# #
-# # Examples:
-# #
-# #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-# #   Mayor.create(name: 'Emanuel', city: cities.first)
-# user = User.create(username: "ders", password: "password")
-# user.questions.create(title: "Test?", body: "this is a test-body")
-# Question.first.answers.create(content: "this is your answer")
-# user2 = User.create(username: "Dom", password: "password")
-# Question.first.comments.create(note: "this is a question comment", user_id: 2)
-# Answer.first.comments.create(note: "this is an answer comment", user_id: 1)
-# Question.first.tags.create(description: "awesomesauce")
-# Comment.first.votes.create(value: 1, user_id: 1)
-# Question.first.votes.create(value: -1, user_id: 2)
+5.times do
+  User.create!(
+    username: Faker::Internet.user_name,
+    password: "password"
+    )  
+end
+
+20.times do
+  Question.create!(
+    title: Faker::Book.title,
+    body: Faker::Lorem.paragraph,
+    user_id: rand(1..5)
+    )
+end
+
+25.times do
+  Comment.create!(
+    note: Faker::Lorem.sentence,
+    commentable_type: ["Question", "Answer"].sample,
+    commentable_id: rand(1..20)
+    )
+end
+
+20.times do
+  Answer.create!(
+    content: Faker::Lorem.sentence,
+    question_id: rand(1..20),
+    user_id: rand(1..5)
+    )
+end
+
+Question.first.tags.create!(
+  description: Faker::Lorem.word
+  )
