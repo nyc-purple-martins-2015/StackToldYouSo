@@ -13,7 +13,6 @@
 
     <%= render partial: 'comments/show', layout: false, locals: {remark: @question} %>
 
-
     <%@question.answers.each do |answer| %>
     <%= render partial:'answers/show', layout: false, locals: {answer: answer} %>
     <% end %>
