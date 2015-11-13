@@ -1,10 +1,13 @@
 <div class="link_to_question_page_container">
-  <span><%=question.vote_count%> Votes</span> |
-  <span><%=question.answers.count%> Answers</span>
-  <h2><a href="questions/<%=question.id%>"><%=question.title%></a></h2>
-  <span><b>Tags:</b></span>
+  <div class="question-stats">
+    <span><strong><a class="question-title" href="questions/<%=question.id%>"><%=question.title%></a></strong></h2></span>
+    <span class="stat-items"><%=question.vote_count%> Votes</span>
+    <span class="stat-items">|</span>
+    <span class="stat-items"><%=question.answers.count%> Answers</span>
+  </div>
+  <div><b>Tags:</b></div>
   <%question.tags.each do |tag| %>
-    <span><%=tag.description%> </span>
+    <span class="tag"><%=tag.description%> </span>
   <%end%>
   <p><span>Question Posted by: <%=question.user.username%>, <%= time_since_created(question)%></span></p>
   <p><span>Last Updated <%= time_since_updated(question)%></span></p>
