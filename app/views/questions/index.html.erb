@@ -1,3 +1,9 @@
+<div class="error">
+  <% if flash[:alert] %>
+    <p class="errors"><%= flash[:alert] %></p>
+  <% end %>
+</div>
+
 <div class="body-outer">
   <h1>Welcome to Stack Told You So!</h1>
   <div class="body-inner">
