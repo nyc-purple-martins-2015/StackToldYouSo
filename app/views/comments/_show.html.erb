@@ -4,3 +4,11 @@
   <li><h6><%=comment.note %></h6></li>
   <% end %>
 </ul>
+
+<%= form_for Comment.new do |f| %>
+  <%= f.text_field :note %>
+  <%=f.hidden_field :commentable_type, :value => remark.class.name %>
+  <%=f.hidden_field :commentable_id, :value => remark.id %>
+<%= f.submit %>
+<% end %>
+
