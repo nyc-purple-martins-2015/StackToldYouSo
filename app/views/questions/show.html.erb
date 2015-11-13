@@ -1,23 +1,26 @@
-<h1><%= @question.title %></h1>
-<p><span>Question Posted by: <%=@question.user.username%>, <%= time_since_created(@question)%></span></p>
-<p><span>Last Updated <%= time_since_updated(@question)%></span></p>
+<div class="body-outer">
+  <h1><%= @question.title %></h1>
+  <div class="body-inner">
+    <p><span>Question Posted by: <%=@question.user.username%>, <%= time_since_created(@question)%></span></p>
+    <p><span>Last Updated <%= time_since_updated(@question)%></span></p>
 
-<h3><%= @question.body %></h3>
+    <h3><%= @question.body %></h3>
 
-<span><b>Tags: </b></span>
-<% @question.tags.each do |tag|%>
-  <span><%=tag.description%> </span>
-<%end%>
+    <span><b>Tags: </b></span>
+    <% @question.tags.each do |tag|%>
+    <span><%=tag.description%> </span>
+    <%end%>
 
-<%= render partial: 'comments/show', layout: false, locals: {remark: @question} %>
+    <%= render partial: 'comments/show', layout: false, locals: {remark: @question} %>
 
+    <%@question.answers.each do |answer| %>
+    <%= render partial:'answers/show', layout: false, locals: {answer: answer} %>
+    <% end %>
 
-<%@question.answers.each do |answer| %>
-  <%= render partial:'answers/show', layout: false, locals: {answer: answer} %>
-<% end %>
-
-<% if logged_in? %> <!-- nn logged_in method to show -->
-  <%= render "answers/new"%>
-<% else %>
-  <p> You must <%= link_to "sign in", login_path %> to Tell Them So</p>
-<% end %>
+    <% if logged_in? %> <!-- nn logged_in method to show -->
+    <%= render "answers/new"%>
+    <% else %>
+    <p> You must <%= link_to "sign in", login_path %> to Tell Them So</p>
+    <% end %>
+  </div>
+</div>
