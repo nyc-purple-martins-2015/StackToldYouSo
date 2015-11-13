@@ -6,6 +6,6 @@
   <%question.tags.each do |tag| %>
     <span><%=tag.description%> </span>
   <%end%>
-  <p><span>Question Posted by: <%=question.user.username%>, on <%=question.created_at%></span></p>
-  <p><span>Last Updated <%=question.updated_at%></span></p>
+  <p><span>Question Posted by: <%=question.user.username%>, <%= time_since_created(question)%></span></p>
+  <p><span>Last Updated <%= time_since_updated(question)%></span></p>
 </div>
