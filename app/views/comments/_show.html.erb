@@ -5,10 +5,13 @@
   <% end %>
 </ul>
 
-<%= form_for Comment.new do |f| %>
-  <%= f.text_field :note %>
-  <%=f.hidden_field :commentable_type, :value => remark.class.name %>
-  <%=f.hidden_field :commentable_id, :value => remark.id %>
-<%= f.submit %>
+<% if logged_in? %>
+  <%= form_for Comment.new do |f| %>
+    <%= f.text_field :note %>
+    <%=f.hidden_field :commentable_type, :value => remark.class.name %>
+    <%=f.hidden_field :commentable_id, :value => remark.id %>
+  <%= f.submit %>
+  <% end %>
+<% else %>
+  <p>You must <%= link_to "sign in", login_path %> to leave a comment.</p>
 <% end %>
-
