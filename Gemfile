@@ -40,10 +40,14 @@ group :development, :test do
   gem 'capybara'
   gem 'database_cleaner'
   gem 'launchy'
-  
+
 
 end
 
+group :test do
+  gem 'shoulda-matchers', '~> 3.0'
+  gem 'simplecov', :require => false
+end
 
 group :development do
   gem 'pry-byebug'
@@ -55,4 +59,3 @@ group :development do
   gem 'spring'
 end
 
-gem 'simplecov', :require => false, :group => :test
