@@ -3,9 +3,10 @@ class AnswersController < ApplicationController
   def create
     answer = current_user.answers.build(answer_params)
     if answer.save
-      redirect_to root_path
+      redirect_to question_path(answer.question_id)
     else
-      redirect_to root_path
+      flash[:alert] = "Something went wrong!"
+      redirect_to question_path(answer_params[:question_id])
     end
   end
 
