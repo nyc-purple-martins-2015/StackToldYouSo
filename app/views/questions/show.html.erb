@@ -17,7 +17,7 @@
 <% end %>
 
 <% if logged_in? %> <!-- nn logged_in method to show -->
-  <%= render answers/_new.html.erb %>
+  <%= render partial: "answers/new", layout: false, locals: {question: @question} %>
 <% else %>
-  <%= link_to "Sign Up or Log In to Tell Them So", new_user_path %>
+  <%= link_to "Sign Up or Log In to Tell Them So", login_path %>
 <% end %>

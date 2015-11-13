@@ -24,6 +24,8 @@ Rails.application.routes.draw do
 
   post 'comments' => 'comments#create'
 
+  post 'answers' => 'answers#create'
+
   # Example resource route with options:
   #   resources :products do
   #     member do
