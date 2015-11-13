@@ -1,0 +1,7 @@
+<h3>Fill out the form below and watch the answers roll in!</h3>
+<%= flash[:errors] %>
+<%= form_for @question do |f| %>
+<div><%= f.text_field :title, :placeholder => "Give your question a title:", size: "50" %></div>
+<div><%= f.text_area :body, :placeholder => "In detail, explain your question:", size: "50x12" %></div>
+<div><%= f.submit "Ask Them!" %></div>
+<% end %>
