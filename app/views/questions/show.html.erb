@@ -9,12 +9,7 @@
   <span><%=tag.description%> </span>
 <%end%>
 
-<p>Comments:</p>
-<ul>
-  <%@question.comments.each do |comment| %>
-  <li><h6><%=comment.note %></h6></li>
-  <% end %>
-</ul>
+<%= render partial: 'comments/show', layout: false, locals: {remark: @question} %>
 
 
 <%@question.answers.each do |answer| %>
