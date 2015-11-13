@@ -6,4 +6,15 @@ class QuestionsController < ApplicationController
   def show
     @question = Question.includes(:comments, :tags, :answers).find(params[:id])
   end
+
+  def new
+  end
+
+  def create
+    params = params.require(:question).permit(:title, :body)
+    @question = Question.new(params, user_id: current_user.id)
+    if @question.save
+      redirect question
+
+  end
 end
