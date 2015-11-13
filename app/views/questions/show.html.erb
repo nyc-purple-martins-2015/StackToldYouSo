@@ -1,4 +1,6 @@
 <h1><%= @question.title %></h1>
+<p><span>Question Posted by: <%=@question.user.username%>, <%= time_since_created(@question)%></span></p>
+<p><span>Last Updated <%= time_since_updated(@question)%></span></p>
 
 <h3><%= @question.body %></h3>
 
@@ -10,7 +12,7 @@
 <p>Comments:</p>
 <ul>
   <%@question.comments.each do |comment| %>
-  <li><%=comment.note %></li>
+  <li><h6><%=comment.note %></h6></li>
   <% end %>
 </ul>
 
