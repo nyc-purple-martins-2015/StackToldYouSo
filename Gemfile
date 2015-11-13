@@ -34,15 +34,19 @@ gem 'bcrypt', '~> 3.1.7'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug'
   gem 'rspec-rails'
   gem 'faker'
   gem 'factory_girl_rails'
+  gem 'capybara'
+  gem 'database_cleaner'
+  gem 'launchy'
+  
 
 end
 
 
 group :development do
+  gem 'pry-byebug'
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
 
@@ -51,3 +55,4 @@ group :development do
   gem 'spring'
 end
 
+gem 'simplecov', :require => false, :group => :test
