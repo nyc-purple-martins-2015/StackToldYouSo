@@ -12,7 +12,7 @@
     <div>
      <a href="/"> <img class="header-logo" src="/imgs/stys_logo.png"></a>
       <% if logged_in? %>
-        <span class="header-item"> Welcome, <%= current_user.username %> </span>
+        <span class="header-item"> Welcome, <%= link_to "#{current_user.username}", user_path(current_user.id) %> </span>
         <span class="header-item"><%= link_to 'Post a Question', new_question_path %></span>
         <span class="header-item">|</span>
         <span class="header-item"> <%= link_to "Log Out", logout_path %></span>
