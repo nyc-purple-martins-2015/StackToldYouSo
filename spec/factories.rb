@@ -42,6 +42,10 @@ FactoryGirl.define do
       association :votable, factory: :answer
     end
   end
-  
+
+  factory(:tag) do
+    question
+    description {Faker::Lorem.word}
+  end
 end
 

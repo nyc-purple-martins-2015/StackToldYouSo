@@ -15,7 +15,7 @@ class QuestionsController < ApplicationController
   def create
     question = current_user.questions.build(question_params)
     if question.save
-      parse_tags(question, question_tag_params)
+      parse_tags(question, question_tag_params) unless question_tag_params.empty?
       redirect_to question_path(question)
     else
       flash[:errors] = "Please try posting your question again!"
