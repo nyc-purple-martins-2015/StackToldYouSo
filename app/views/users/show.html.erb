@@ -1,0 +1,6 @@
+<h1>Your questions: </h1>
+<% @user.questions.each do |question| %>
+  <ul>
+    <li><%= question.title %> <%= link_to "Edit", root_path %></li>
+  </ul>
+  <% end %>

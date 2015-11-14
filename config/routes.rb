@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   #   resources :products
   resources :questions
 
-  resources :users, only: :create
+  resources :users, only: [:create, :show]
 
   get 'register' => 'users#new', as: :register
   get 'logout' => 'sessions#destroy', as: :logout
