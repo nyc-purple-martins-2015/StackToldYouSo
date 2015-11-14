@@ -51,6 +51,7 @@ a:hover {
 .question-title {
   font-weight: bold;
   text-align: center;
+  padding-bottom: 8px;
 }
 
 #question-body {
@@ -114,4 +115,13 @@ input[type="image"]
 .voter {
   /*display: inline-block;*/
   width: 10px;
+}
+
+.answer-input {
+  text-align: center;
+  padding: 20px;
+}
+
+.answer-input-title {
+  padding-right: 35px;
 }
