@@ -27,4 +27,8 @@ class QuestionsController < ApplicationController
   def question_params
     params.require(:question).permit(:title, :body)
   end
+
+  def question_tag_params
+    params.require(:question).permit(:tags)
+  end
 end
