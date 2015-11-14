@@ -26,6 +26,8 @@ Rails.application.routes.draw do
 
   post 'answers' => 'answers#create'
 
+  post 'votes' => 'votes#create'
+
   # Example resource route with options:
   #   resources :products do
   #     member do

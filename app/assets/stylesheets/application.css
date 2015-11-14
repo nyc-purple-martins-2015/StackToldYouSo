@@ -54,3 +54,13 @@ width: 60px;
   color: red;
   text-align: center;
 }
+
+input[type="image"]
+{
+  width: 20px;
+}
+
+.voter {
+  /*display: inline-block;*/
+  width: 10px;
+}

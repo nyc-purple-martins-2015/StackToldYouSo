@@ -1,0 +1,4 @@
+<%= f.hidden_field :value, :value => value %>
+<%= f.hidden_field :votable_type, :value => remark.class.name %>
+<%= f.hidden_field :votable_id, :value => remark.id %>
+<%= f.hidden_field :user_id, :value => current_user.id %>
