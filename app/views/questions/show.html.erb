@@ -1,26 +1,31 @@
 
-<div class="show-body-outer">
-  <div class="content-card-top">
+
+  <div class="content-card">
     <div class="vote-buttons">
       <!-- UPVOTE FORM -->
+      <% if logged_in? %>
       <span class="voter">
         <%= form_for Vote.new do |f| %>
         <%= render partial: 'votes/create', layout: false, locals: {f: f, remark: @question, value: 1 } %>
         <%= f.submit :type => :image, :src => "/imgs/thumbsup.png" %>
         <% end %>
       </span>
-
+      <% end %>
 
       <!-- QUESTION VOTE TOTAL -->
+      <% if logged_in? %>
       <span><%= @question.vote_count %></span>
+      <% end %>
 
       <!-- DOWNVOTE FORM -->
+      <% if logged_in? %>
       <span class="voter">
         <%= form_for Vote.new do |f| %>
         <%= render partial: 'votes/create', layout: false, locals: {f: f, remark: @question, value: -1 } %>
         <%= f.submit :type => :image, :src => "/imgs/thumbsdown.png" %>
         <% end %>
       </span>
+      <% end %>
     </div>
 
 
@@ -31,10 +36,10 @@
    <div id="question-body">
     <%= @question.body %>
   </div>
-</div>
+
 
 <div class="show-body-inner">
-  <div class="content-card">
+
     <p class="question-author"><span>Question Posted by: <%=@question.user.username%>, <%= time_since_created(@question)%></span></p>
     <p><span>Last Updated <%= time_since_updated(@question)%></span></p>
 
@@ -45,18 +50,21 @@
     <%end%>
 
     <%= render partial: 'comments/show', layout: false, locals: {remark: @question} %>
-  </div>
+</div>
+</div>
   <div class="content-card">
     <%@question.answers.each do |answer| %>
 
     <%= render partial:'answers/show', layout: false, locals: {answer: answer} %>
     <% end %>
 
+    <div class="answer-input">
     <% if logged_in? %> <!-- nn logged_in method to show -->
     <%= render "answers/new"%>
     <% else %>
+    </div>
     <p> You must <%= link_to "sign in", login_path %> to Tell Them So</p>
     <% end %>
   </div>
-</div>
-</div>
+
+
