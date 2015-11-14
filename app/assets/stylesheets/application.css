@@ -49,3 +49,8 @@ width: 60px;
   font-size: 18pt;
   margin-right: 15px;
 }
+
+.errors {
+  color: red;
+  text-align: center;
+}

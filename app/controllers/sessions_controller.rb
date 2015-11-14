@@ -10,11 +10,10 @@ class SessionsController < ApplicationController
 
   def create
     @user = User.find_by(username: params[:user][:username])
-    if @user.password == params[:password]
-      flash[:notice] = "Awesome!"
+    if @user && @user.authenticate(params[:user][:password])
       session[:user_id] = @user.id
     else
-      flash[:alert] = "bad password"
+      flash[:alert] = "Bad username or password."
     end
     redirect_to root_path
   end
