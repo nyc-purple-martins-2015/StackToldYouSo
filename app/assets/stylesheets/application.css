@@ -15,7 +15,7 @@ a:hover {
 }
 
 .header-logo {
-width: 60px;
+width: 110px;
 }
 
 .header-item {
@@ -32,6 +32,21 @@ width: 60px;
   display: inline-block;
 }
 
+.show-body-outer {
+  text-align: center;
+  width: 65%;
+}
+
+.show-whole-page {
+  width: 100%;
+}
+
+.vote-buttons {
+text-align: right;
+width: 35%;
+float: left;
+display: inline-block;
+}
 .question-stats {
   display: inline-block;
   margin-bottom: 15px;

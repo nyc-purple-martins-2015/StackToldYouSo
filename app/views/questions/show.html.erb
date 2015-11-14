@@ -1,6 +1,5 @@
-<div class="body-outer">
-  <h3><%= @question.body %></h3>
-
+<div class="show-whole-page">
+<div class="vote-buttons">
   <!-- UPVOTE FORM -->
   <span class="voter">
     <%= form_for Vote.new do |f| %>
@@ -20,6 +19,9 @@
       <%= f.submit :type => :image, :src => "/imgs/thumbsdown.png" %>
     <% end %>
   </span>
+</div>
+<div class="show-body-outer">
+  <h3><%= @question.body %></h3>
 
   <!-- REST OF THE QUESTION -->
   <h1><%= @question.title %></h1>
@@ -46,4 +48,5 @@
         <p> You must <%= link_to "sign in", login_path %> to Tell Them So</p>
     <% end %>
   </div>
+</div>
 </div>
