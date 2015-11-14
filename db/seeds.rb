@@ -2,7 +2,7 @@
   User.create!(
     username: Faker::Internet.user_name,
     password: "password"
-    )  
+    )
 end
 
 20.times do
@@ -21,7 +21,7 @@ end
     )
 end
 
-20.times do
+50.times do
   Answer.create!(
     content: Faker::Lorem.sentence,
     question_id: rand(1..20),
@@ -29,6 +29,8 @@ end
     )
 end
 
-Question.first.tags.create!(
+100.times do
+  Question.all.sample.tags.create!(
   description: Faker::Lorem.word
   )
+end
