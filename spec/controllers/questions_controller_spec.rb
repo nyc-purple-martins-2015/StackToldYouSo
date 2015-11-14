@@ -14,6 +14,11 @@ RSpec.describe QuestionsController do
     expect(assigns(:question)).to be_a_kind_of(Question)
   end
 
+  it '#new' do
+    get :new
+    expect(assigns(:question)).to be_a_kind_of(Question)
+  end
+
   context '#creates' do
     it 'creates a question with valid params' do
       expect {
