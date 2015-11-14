@@ -50,6 +50,7 @@ a:hover {
 
 .question-title {
   font-weight: bold;
+  text-align: center;
 }
 
 #question-body {
@@ -65,19 +66,6 @@ a:hover {
 
 .content-card {
   padding: 40px;
-  width: 500px;
-  box-shadow: 0px 2px 5px #0C90A2;
-  border-radius: 25px;
-  margin-right: auto;
-  margin-left: auto;
-  margin-top: 3em;
-}
-
-.content-card-top {
-padding-right: 40px;
-padding-left: 40px;
-padding-top: 40px;
-padding-bottom: 50px;
   width: 500px;
   box-shadow: 0px 2px 5px #0C90A2;
   border-radius: 25px;

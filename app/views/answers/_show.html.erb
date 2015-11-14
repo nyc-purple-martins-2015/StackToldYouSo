@@ -4,6 +4,7 @@
   </span>
 
   <span class="comment-vote-buttons">
+    <% if logged_in? %>
     <!-- UPVOTE FORM -->
     <span class="voter">
       <%= form_for Vote.new do |f| %>
@@ -22,6 +23,7 @@
       <%= f.submit :type => :image, :src => "/imgs/thumbsdown.png" %>
       <% end %>
     </span>
+    <% end %>
   </span>
 
   <span class="comment-show-answer">
