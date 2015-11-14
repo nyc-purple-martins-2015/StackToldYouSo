@@ -1,49 +1,53 @@
-<div class="body-outer">
-  <h3><%= @question.body %></h3>
-
-  <!-- UPVOTE FORM -->
-  <span class="voter">
-    <%= form_for Vote.new do |f| %>
+<div id="whole-page">
+  <div class="up-down-inline">
+    <!-- UPVOTE FORM -->
+    <span class="voter">
+      <%= form_for Vote.new do |f| %>
       <%= render partial: 'votes/create', layout: false, locals: {f: f, remark: @question, value: 1 } %>
-      <%= f.submit :type => :image, :src => "/imgs/thumbsup.png" %>
-    <% end %>
-  </span>
+      <%= f.submit :type => :image, :src => "/imgs/hand-up.png" %>
+      <% end %>
+    </span>
 
 
-  <!-- QUESTION VOTE TOTAL -->
-  <span><h4><%= @question.vote_count %></h4></span>
+    <!-- QUESTION VOTE TOTAL -->
+    <span><h4><%= @question.vote_count %></h4></span>
 
-  <!-- DOWNVOTE FORM -->
-  <span class="voter">
-    <%= form_for Vote.new do |f| %>
+    <!-- DOWNVOTE FORM -->
+    <span class="voter">
+      <%= form_for Vote.new do |f| %>
       <%= render partial: 'votes/create', layout: false, locals: {f: f, remark: @question, value: -1 } %>
-      <%= f.submit :type => :image, :src => "/imgs/thumbsdown.png" %>
-    <% end %>
-  </span>
+      <%= f.submit :type => :image, :src => "/imgs/hand-down.png" %>
+      <% end %>
+    </span>
+  </div>
 
-  <!-- REST OF THE QUESTION -->
-  <h1><%= @question.title %></h1>
-  <div class="body-inner">
-    <p><span>Question Posted by: <%=@question.user.username%>, <%= time_since_created(@question)%></span></p>
-    <p><span>Last Updated <%= time_since_updated(@question)%></span></p>
+  <div class="body-outer">
+    <h3><%= @question.body %></h3>
+
+    <!-- REST OF THE QUESTION -->
+    <h1><%= @question.title %></h1>
+    <div class="body-inner">
+      <p><span>Question Posted by: <%=@question.user.username%>, <%= time_since_created(@question)%></span></p>
+      <p><span>Last Updated <%= time_since_updated(@question)%></span></p>
 
 
-    <span><b>Tags: </b></span>
-    <% @question.tags.each do |tag|%>
-    <span><%=tag.description%> </span>
-    <%end%>
+      <span><b>Tags: </b></span>
+      <% @question.tags.each do |tag|%>
+      <span><%=tag.description%> </span>
+      <%end%>
 
-    <%= render partial: 'comments/show', layout: false, locals: {remark: @question} %>
+      <%= render partial: 'comments/show', layout: false, locals: {remark: @question} %>
 
-    <%@question.answers.each do |answer| %>
+      <%@question.answers.each do |answer| %>
 
-    <%= render partial:'answers/show', layout: false, locals: {answer: answer} %>
-    <% end %>
+      <%= render partial:'answers/show', layout: false, locals: {answer: answer} %>
+      <% end %>
 
-    <% if logged_in? %> <!-- nn logged_in method to show -->
-        <%= render "answers/new"%>
-    <% else %>
-        <p> You must <%= link_to "sign in", login_path %> to Tell Them So</p>
-    <% end %>
+      <% if logged_in? %> <!-- nn logged_in method to show -->
+      <%= render "answers/new"%>
+      <% else %>
+      <p> You must <%= link_to "sign in", login_path %> to Tell Them So</p>
+      <% end %>
+    </div>
   </div>
 </div>

@@ -23,8 +23,20 @@ width: 100px;
   float: right;
 }
 
-.body-outer {
+.standard-body-outer {
   text-align: center;
+}
+
+.standard-body-inner {
+text-align: left;
+display: inline-block;
+}
+
+.body-outer {
+  /*display: inline-block;*/
+  width: 75%;
+  text-align: center;
+  /*float: right;*/
 }
 
 .body-inner {
@@ -61,6 +73,18 @@ input[type="image"]
 }
 
 .voter {
-  /*display: inline-block;*/
+  display: inline;
   width: 10px;
+}
+
+.up-down-inline {
+  text-align: right;
+/*padding-left: 30px;*/
+  width: 25%;
+  display: inline-block;
+  float: left;
+}
+
+#whole-page {
+  width: 100%;
 }

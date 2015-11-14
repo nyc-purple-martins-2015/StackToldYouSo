@@ -4,9 +4,9 @@
   <% end %>
 </div>
 
-<div class="body-outer">
+<div class="standard-body-outer">
   <h1>Welcome to Stack Told You So!</h1>
-  <div class="body-inner">
+  <div class="standard-body-inner">
     <%@questions.each do |question|%>
     <%= render partial:'link', layout:false, locals: {question: question} %>
   <%end%>
