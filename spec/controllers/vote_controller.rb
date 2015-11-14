@@ -8,7 +8,7 @@ RSpec.describe VotesController do
     it 'user can vote on a question' do
       expect{
         post :create
-        user: FactoryGirl.attributes_for(:user)
+        vote: FactoryGirl.attributes_for(:vote)
       }.to change(User, :count).by(1)
     end
   end
