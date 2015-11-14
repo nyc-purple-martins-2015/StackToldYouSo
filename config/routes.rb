@@ -28,6 +28,8 @@ Rails.application.routes.draw do
 
   post 'votes' => 'votes#create'
 
+  resources :tags, only: :show
+
   # Example resource route with options:
   #   resources :products do
   #     member do

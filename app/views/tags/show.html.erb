@@ -1,0 +1,5 @@
+<h1>All questions tagged with <%=@tag.description%></h1>
+
+<% @tag.questions.order(updated_at: :desc).each do |question| %>
+  <%= render partial:'questions/link', layout:false, locals: {question: question} %>
+<% end %>
