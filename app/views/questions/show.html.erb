@@ -1,31 +1,35 @@
 <div class="show-whole-page">
-<div class="vote-buttons">
-  <!-- UPVOTE FORM -->
-  <span class="voter">
-    <%= form_for Vote.new do |f| %>
+  <div class="vote-buttons">
+    <!-- UPVOTE FORM -->
+    <span class="voter">
+      <%= form_for Vote.new do |f| %>
       <%= render partial: 'votes/create', layout: false, locals: {f: f, remark: @question, value: 1 } %>
       <%= f.submit :type => :image, :src => "/imgs/thumbsup.png" %>
-    <% end %>
-  </span>
+      <% end %>
+    </span>
 
 
-  <!-- QUESTION VOTE TOTAL -->
-  <span><h4><%= @question.vote_count %></h4></span>
+    <!-- QUESTION VOTE TOTAL -->
+    <span><%= @question.vote_count %></span>
 
-  <!-- DOWNVOTE FORM -->
-  <span class="voter">
-    <%= form_for Vote.new do |f| %>
+    <!-- DOWNVOTE FORM -->
+    <span class="voter">
+      <%= form_for Vote.new do |f| %>
       <%= render partial: 'votes/create', layout: false, locals: {f: f, remark: @question, value: -1 } %>
       <%= f.submit :type => :image, :src => "/imgs/thumbsdown.png" %>
-    <% end %>
-  </span>
-</div>
-<div class="show-body-outer">
-  <h3><%= @question.body %></h3>
+      <% end %>
+    </span>
+  </div>
+  <div class="show-body-outer">
 
-  <!-- REST OF THE QUESTION -->
-  <h1><%= @question.title %></h1>
-  <div class="body-inner">
+    <!-- REST OF THE QUESTION -->
+    <div class="question-title">
+   <%= @question.title %>
+    </div>
+    <div id="question-body">
+      <%= @question.body %>
+    </div>
+    <div class="show-body-inner">
     <p class="question-author"><span>Question Posted by: <%=@question.user.username%>, <%= time_since_created(@question)%></span></p>
     <p><span>Last Updated <%= time_since_updated(@question)%></span></p>
 
@@ -43,9 +47,9 @@
     <% end %>
 
     <% if logged_in? %> <!-- nn logged_in method to show -->
-        <%= render "answers/new"%>
+    <%= render "answers/new"%>
     <% else %>
-        <p> You must <%= link_to "sign in", login_path %> to Tell Them So</p>
+    <p> You must <%= link_to "sign in", login_path %> to Tell Them So</p>
     <% end %>
   </div>
 </div>

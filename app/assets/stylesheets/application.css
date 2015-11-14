@@ -3,11 +3,11 @@ body {
 }
 
 a:link {
-color: #1C3064;
+  color: #1C3064;
 }
 
 a:visited {
-color: #1C3064;
+  color: #1C3064;
 }
 
 a:hover {
@@ -15,7 +15,7 @@ a:hover {
 }
 
 .header-logo {
-width: 110px;
+  width: 110px;
 }
 
 .header-item {
@@ -34,22 +34,43 @@ width: 110px;
 
 .show-body-outer {
   text-align: center;
-  width: 65%;
+
+}
+
+.show-body-inner {
+  text-align: center;
+  /*display: inline-block;*/
+  padding-top: 30px;
+
 }
 
 .show-whole-page {
-  width: 100%;
+  /*width: 100%;*/
+}
+
+.question-title {
+  font-weight: bold;
+}
+
+#question-body {
+  text-align: left;
+  /*padding-left: 40px;*/
+
 }
 
 .vote-buttons {
-text-align: right;
-width: 35%;
-float: left;
-display: inline-block;
+  text-align: right;
+
+  float: left;
+  display: inline-block;
 }
 .question-stats {
   display: inline-block;
   margin-bottom: 15px;
+}
+
+.comment-vote-buttons {
+  float: left;
 }
 
 .stat-items {

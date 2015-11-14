@@ -1,24 +1,31 @@
-<h5><span>Answer Posted by: <%=answer.user.username%>, <%= time_since_created(answer)%></span></h5>
-<!-- UPVOTE FORM -->
-  <span class="voter">
-    <%= form_for Vote.new do |f| %>
+<div class="comment-container">
+  <span class="comment-stats">
+    <h5><span>Answer Posted by: <%=answer.user.username%>, <%= time_since_created(answer)%></span></h5>
+  </span>
+
+  <span class="comment-vote-buttons">
+    <!-- UPVOTE FORM -->
+    <span class="voter">
+      <%= form_for Vote.new do |f| %>
       <%= render partial: 'votes/create', layout: false, locals: {f: f, remark: answer, value: 1 } %>
       <%= f.submit :type => :image, :src => "/imgs/thumbsup.png" %>
-    <% end %>
-  </span>
+      <% end %>
+    </span>
 
+    <!-- ANSWER VOTE TOTAL -->
+    <span><%= answer.vote_count %></span>
 
-  <!-- ANSWER VOTE TOTAL -->
-  <span><h4><%= answer.vote_count %></h4></span>
-
-  <!-- DOWNVOTE FORM -->
-  <span class="voter">
-    <%= form_for Vote.new do |f| %>
+    <!-- DOWNVOTE FORM -->
+    <span class="voter">
+      <%= form_for Vote.new do |f| %>
       <%= render partial: 'votes/create', layout: false, locals: {f: f, remark: answer, value: -1 } %>
       <%= f.submit :type => :image, :src => "/imgs/thumbsdown.png" %>
-    <% end %>
+      <% end %>
+    </span>
   </span>
 
-
-<p class="show-answer"><%=answer.content%></p>
-<%= render partial: 'comments/show', layout: false, locals: {remark: answer} %>
+  <span class="comment-show-answer">
+    <p class="show-answer"><%=answer.content%></p>
+    <%= render partial: 'comments/show', layout: false, locals: {remark: answer} %>
+  </span>
+</div>
