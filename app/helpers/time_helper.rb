@@ -1,6 +1,6 @@
 module TimeHelper
   def time_since_created(remark)
-    time = remark.created_at.hour-Time.now.utc.hour
+    time = (Time.now.hour-remark.created_at.localtime.hour).abs
     if time < 1
       return "less than one hour ago"
     else
@@ -9,7 +9,7 @@ module TimeHelper
   end
 
   def time_since_updated(remark)
-    time = remark.updated_at.hour-Time.now.utc.hour
+    time = (Time.now.hour-remark.updated_at.localtime.hour).abs
     if time < 1
       return "less than one hour ago"
     else
