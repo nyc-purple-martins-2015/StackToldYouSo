@@ -24,7 +24,7 @@
   <!-- REST OF THE QUESTION -->
   <h1><%= @question.title %></h1>
   <div class="body-inner">
-    <p><span>Question Posted by: <%=@question.user.username%>, <%= time_since_created(@question)%></span></p>
+    <p class="question-author"><span>Question Posted by: <%=@question.user.username%>, <%= time_since_created(@question)%></span></p>
     <p><span>Last Updated <%= time_since_updated(@question)%></span></p>
 
 

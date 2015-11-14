@@ -6,7 +6,7 @@
 
 <div class="body-outer">
   <h1>Welcome to Stack Told You So!</h1>
-  <div class="body-inner">
+  <div class="body-inner" class="recent-questions">
     <%@questions.each do |question|%>
     <%= render partial:'link', layout:false, locals: {question: question} %>
   <%end%>
