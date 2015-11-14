@@ -1,46 +1,52 @@
-<div class="show-whole-page">
-  <div class="vote-buttons">
-    <!-- UPVOTE FORM -->
-    <span class="voter">
-      <%= form_for Vote.new do |f| %>
-      <%= render partial: 'votes/create', layout: false, locals: {f: f, remark: @question, value: 1 } %>
-      <%= f.submit :type => :image, :src => "/imgs/thumbsup.png" %>
-      <% end %>
-    </span>
+
+<div class="show-body-outer">
+  <div class="content-card-top">
+    <div class="vote-buttons">
+      <!-- UPVOTE FORM -->
+      <span class="voter">
+        <%= form_for Vote.new do |f| %>
+        <%= render partial: 'votes/create', layout: false, locals: {f: f, remark: @question, value: 1 } %>
+        <%= f.submit :type => :image, :src => "/imgs/thumbsup.png" %>
+        <% end %>
+      </span>
 
 
-    <!-- QUESTION VOTE TOTAL -->
-    <span><%= @question.vote_count %></span>
+      <!-- QUESTION VOTE TOTAL -->
+      <span><%= @question.vote_count %></span>
 
-    <!-- DOWNVOTE FORM -->
-    <span class="voter">
-      <%= form_for Vote.new do |f| %>
-      <%= render partial: 'votes/create', layout: false, locals: {f: f, remark: @question, value: -1 } %>
-      <%= f.submit :type => :image, :src => "/imgs/thumbsdown.png" %>
-      <% end %>
-    </span>
-  </div>
-  <div class="show-body-outer">
+      <!-- DOWNVOTE FORM -->
+      <span class="voter">
+        <%= form_for Vote.new do |f| %>
+        <%= render partial: 'votes/create', layout: false, locals: {f: f, remark: @question, value: -1 } %>
+        <%= f.submit :type => :image, :src => "/imgs/thumbsdown.png" %>
+        <% end %>
+      </span>
+    </div>
+
 
     <!-- REST OF THE QUESTION -->
     <div class="question-title">
-   <%= @question.title %>
-    </div>
-    <div id="question-body">
-      <%= @question.body %>
-    </div>
-    <div class="show-body-inner">
+     <%= @question.title %>
+   </div>
+   <div id="question-body">
+    <%= @question.body %>
+  </div>
+</div>
+
+<div class="show-body-inner">
+  <div class="content-card">
     <p class="question-author"><span>Question Posted by: <%=@question.user.username%>, <%= time_since_created(@question)%></span></p>
     <p><span>Last Updated <%= time_since_updated(@question)%></span></p>
 
 
     <span><b>Tags: </b></span>
     <% @question.tags.each do |tag|%>
-      <%= render partial:'tags/link', layout:false, locals: {tag: tag} %>
+    <%= render partial:'tags/link', layout:false, locals: {tag: tag} %>
     <%end%>
 
     <%= render partial: 'comments/show', layout: false, locals: {remark: @question} %>
-
+  </div>
+  <div class="content-card">
     <%@question.answers.each do |answer| %>
 
     <%= render partial:'answers/show', layout: false, locals: {answer: answer} %>
