@@ -7,7 +7,7 @@
   </div>
   <div><b>Tags:</b></div>
   <%question.tags.each do |tag| %>
-    <span class="tag"><%=tag.description%> </span>
+    <%= render partial:'tags/link', layout:false, locals: {tag: tag} %>
   <%end%>
   <p><span>Question Posted by: <%=question.user.username%>, <%= time_since_created(question)%></span></p>
   <p><span class="time-update">Last Updated <%= time_since_updated(question)%></span></p>
