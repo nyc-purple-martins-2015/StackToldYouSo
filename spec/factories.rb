@@ -42,6 +42,6 @@ FactoryGirl.define do
       association :votable, factory: :answer
     end
   end
-  
+
 end
 
