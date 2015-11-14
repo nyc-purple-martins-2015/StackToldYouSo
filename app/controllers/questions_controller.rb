@@ -15,6 +15,13 @@ class QuestionsController < ApplicationController
   def create
     question = current_user.questions.build(question_params)
     if question.save
+      tags = question_tag_params[:tags].split(",")
+      tags.each do |tag|
+        new_tag = Tag.find_or_create_by(description: tag)
+        unless question.tags.include?(new_tag)
+          question.tags << new_tag
+        end
+      end
       redirect_to question_path(question)
     else
       flash[:errors] = "Please try posting your question again!"
