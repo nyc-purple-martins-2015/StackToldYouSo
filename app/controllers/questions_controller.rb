@@ -27,6 +27,18 @@ class QuestionsController < ApplicationController
     @question = Question.includes(:tags).find(params[:id])
   end
 
+  def update
+    @question = Question.find(params[:id])
+    @question.assign_attributes(question_params)
+    if @question.save
+      update_tags(@question, question_tag_params) unless question_tag_params.empty?
+      redirect_to user_path(@question.user_id)
+    else
+      flash[:errors] = "Please try editing your question again!"
+      redirect_to user_path(@question)
+    end
+  end
+
   private
 
   def question_params
