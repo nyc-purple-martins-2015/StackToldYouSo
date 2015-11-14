@@ -1,0 +1,12 @@
+<div class="body-outer">
+  <h3>Edit the form below and watch the answers roll in!</h3>
+  <div class="body-inner">
+    <%= flash[:errors] %>
+    <%= form_for @question do |f| %>
+    <div><%= f.text_field :title, :placeholder => "#{@question.title}", size: "50" %></div>
+    <div><%= f.text_area :body, :placeholder => "#{@question.body}", size: "50x12" %></div>
+    <div><%= f.text_field :tags, :value => nil, :placeholder => "#{@question.tags}", :size => 50 %></div>
+    <div><%= f.submit "Stack Tell Me So!" %></div>
+    <% end %>
+  </div>
+</div>

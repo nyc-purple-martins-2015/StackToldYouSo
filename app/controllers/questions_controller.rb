@@ -24,7 +24,7 @@ class QuestionsController < ApplicationController
   end
 
   def edit
-
+    @question = Question.includes(:tags).find(params[:id])
   end
 
   private
