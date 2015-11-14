@@ -31,6 +31,6 @@ end
 
 100.times do
   Question.all.sample.tags.create!(
-  description: Faker::Lorem.word
+  description: ["fun", "awesomesauce", "bad", "kitty", "puppy", "food", "christmas", "turkey", "spectre"].sample
   )
 end
