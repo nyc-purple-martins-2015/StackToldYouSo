@@ -3,11 +3,11 @@ body {
 }
 
 a:link {
-color: #1C3064;
+  color: #1C3064;
 }
 
 a:visited {
-color: #1C3064;
+  color: #1C3064;
 }
 
 a:hover {
@@ -15,7 +15,7 @@ a:hover {
 }
 
 .header-logo {
-width: 110px;
+  width: 110px;
 }
 
 .header-item {
@@ -34,22 +34,66 @@ width: 110px;
 
 .show-body-outer {
   text-align: center;
-  width: 65%;
+  margin-right: auto;
+  margin-left: auto;
+  /*float: right;*/
 }
 
-.show-whole-page {
-  width: 100%;
+.show-body-inner {
+  text-align: left;
+  display: inline-block;
+
+  margin-right: auto;
+  margin-left: auto;
+
+}
+
+.question-title {
+  font-weight: bold;
+}
+
+#question-body {
+  text-align: right;
+  /*padding-left: 40px;*/
 }
 
 .vote-buttons {
-text-align: right;
-width: 35%;
-float: left;
-display: inline-block;
+  text-align: right;
+  float: left;
+  display: inline-block;
 }
+
+.content-card {
+  padding: 40px;
+  width: 500px;
+  box-shadow: 0px 2px 5px #0C90A2;
+  border-radius: 25px;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 3em;
+}
+
+.content-card-top {
+padding-right: 40px;
+padding-left: 40px;
+padding-top: 40px;
+padding-bottom: 50px;
+  width: 500px;
+  box-shadow: 0px 2px 5px #0C90A2;
+  border-radius: 25px;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 3em;
+}
+
 .question-stats {
   display: inline-block;
   margin-bottom: 15px;
+}
+
+.comment-vote-buttons {
+  float: left;
+  padding: 1em;
 }
 
 .stat-items {
@@ -58,6 +102,10 @@ display: inline-block;
 
 .tag {
   background-color: #0C90A2;
+}
+
+.answer-list {
+list-style: none;
 }
 
 .question-title {
