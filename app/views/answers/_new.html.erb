@@ -1,7 +1,10 @@
-<h2>Add an Answer</h2>
-
+<span class="answer-input-title">
+Add an Answer
+</span>
+<span class="answer-box">
 <%= form_for Answer.new do |f| %>
   <%= f.text_area :content %> <br/>
   <%= f.submit "Tell Them So" %>
   <%= f.hidden_field :question_id, :value => @question.id %>
 <% end %>
+</span>
