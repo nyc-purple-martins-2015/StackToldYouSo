@@ -27,23 +27,33 @@ feature 'Visitor browsing the page that hosts the question' do
     it 'displays the author of the question' do
       page.has_css?('.question-author')
     end
+  end
 
-    it 'displays a form to leave a comment on a question' do
-      save_and_open_page
-      page.has_css?('.new-comment')
+  context 'on questions#show page' do
+    let(:log_me_in) {
+      visit login_path
+      click_link "Log In"
+      within("#new_user") do
+        fill_in "Username", :with => @user.username
+        fill_in "Password", :with => @user.password
+        click_button "Log In"
+      end
+    }
+
+    it 'allows a user to see comment box' do
+      log_me_in
+      visit root_path
+      click_link "#{@new_question.title}"
+      page.has_css? ('#comment_note')
     end
 
-    # it 'allows a user to leave a comment' do
-    #   @new_question
-    #   visit root_path
-    #   save_and_open_page
-    #   click_link "#{@new_question.title}"
-    #   expect {
-    #     fill_in 'note', with: "Commenting here!"
-    #   }
-    #   click_button "submit"
-    #   expect(page).to have_content ("Commenting here!")
-    # end
+    it 'allows a user to see form to add an answer' do
+      log_me_in
+      visit root_path
+      click_link "#{@new_question.title}"
+      expect(page).to have_content("Add an Answer")
+      save_and_open_page
+    end
 
   end
 end
