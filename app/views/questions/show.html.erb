@@ -44,7 +44,8 @@
     <p><span>Last Updated <%= time_since_updated(@question)%></span></p>
 
 
-    <span><b>Tags: </b></span>
+    <span class="tags-list"><b>Tags: </b></span>
+
     <% @question.tags.each do |tag|%>
     <%= render partial:'tags/link', layout:false, locals: {tag: tag} %>
     <%end%>
