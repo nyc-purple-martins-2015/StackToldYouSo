@@ -89,8 +89,14 @@ a:hover {
   margin-right: 15px;
 }
 
-.tag {
+a.tag {
+  padding: 2px;
   background-color: #0C90A2;
+  color: white;
+}
+
+.tags-list{
+  padding: 5px;
 }
 
 .answer-list {

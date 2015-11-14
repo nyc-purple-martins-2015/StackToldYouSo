@@ -5,7 +5,7 @@
     <span class="stat-items">|</span>
     <span class="answer-count"><%=question.answers.count%> Answers</span>
   </div>
-  <div><b>Tags:</b></div>
+  <div class= "tags-list"><b>Tags:</b></div>
   <%question.tags.each do |tag| %>
     <%= render partial:'tags/link', layout:false, locals: {tag: tag} %>
   <%end%>
