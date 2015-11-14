@@ -28,9 +28,3 @@ end
     user_id: rand(1..5)
     )
 end
-
-100.times do
-  Question.all.sample.tags.create!(
-  description: ["fun", "awesomesauce", "bad", "kitty", "puppy", "food", "christmas", "turkey", "spectre"].sample
-  )
-end

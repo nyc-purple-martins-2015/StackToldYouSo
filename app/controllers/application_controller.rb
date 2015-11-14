@@ -21,7 +21,7 @@ class ApplicationController < ActionController::Base
   def parse_tags(question, question_tag_params)
     tags = question_tag_params[:tags].split(/[-,\/]/)
     tags.each do |tag|
-      new_tag = Tag.find_or_create_by(description: tag)
+      new_tag = Tag.find_or_create_by(description: tag.lstrip)
       unless question.tags.include?(new_tag)
         question.tags << new_tag
       end
