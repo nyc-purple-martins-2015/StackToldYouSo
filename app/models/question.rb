@@ -11,4 +11,13 @@ class Question < ActiveRecord::Base
   def vote_count
     self.votes.sum(:value)
   end
+
+  def self.search(search)
+    if search
+      where('title LIKE ?', "%#{search}%")
+    else
+      all.includes(:comments, :tags, :answers).all.order(updated_at: :desc).limit(10)
+    end
+  end
 end
+
