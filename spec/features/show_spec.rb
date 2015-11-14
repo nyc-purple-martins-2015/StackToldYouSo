@@ -29,10 +29,6 @@ feature 'Visitor browsing the page that hosts the question' do
     end
 
     it 'displays a form to leave a comment on a question' do
-      @new_question
-      visit root_path
-
-      click_link "#{@new_question.title}"
       save_and_open_page
       page.has_css?('.new-comment')
     end
