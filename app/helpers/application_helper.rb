@@ -7,4 +7,8 @@ module ApplicationHelper
     !!current_user
   end
 
+  def already_voted?(user, remark)
+    return true if user.votes.where(votable_id: remark.id).empty?
+  end
+
 end
