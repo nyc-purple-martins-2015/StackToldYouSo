@@ -3,7 +3,7 @@
   <div class="content-card">
     <div class="vote-buttons">
       <!-- UPVOTE FORM -->
-      <% if logged_in? %>
+      <% if logged_in? && already_voted?(current_user, @question) %>
       <span class="voter">
         <%= form_for Vote.new do |f| %>
         <%= render partial: 'votes/create', layout: false, locals: {f: f, remark: @question, value: 1 } %>
@@ -13,12 +13,12 @@
       <% end %>
 
       <!-- QUESTION VOTE TOTAL -->
-      <% if logged_in? %>
+
       <span><%= @question.vote_count %></span>
-      <% end %>
+
 
       <!-- DOWNVOTE FORM -->
-      <% if logged_in? %>
+      <% if logged_in? && already_voted?(current_user, @question)%>
       <span class="voter">
         <%= form_for Vote.new do |f| %>
         <%= render partial: 'votes/create', layout: false, locals: {f: f, remark: @question, value: -1 } %>
