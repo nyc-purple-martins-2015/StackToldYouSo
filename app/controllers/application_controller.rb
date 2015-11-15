@@ -20,7 +20,7 @@ class ApplicationController < ActionController::Base
 
   def parse_tags(question, question_tag_params)
     tags = question_tag_params[:tags].split(/[-,\/]/)
-        tags.map! { |tag| Tag.find_or_create_by(description: tag.strip) }
+        tags.map! { |tag| Tag.find_or_create_by(description: tag.strip.downcase ) }
     tags = tags.uniq
     question.tags.clear unless question.tags.empty?
     tags.each do |tag|
