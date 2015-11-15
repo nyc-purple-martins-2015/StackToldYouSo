@@ -16,7 +16,7 @@ class Question < ActiveRecord::Base
     if search
       where('title LIKE ? OR body LIKE ?', "%#{search}%", "%#{search}%").includes(:comments, :tags, :answers).order(updated_at: :desc)
     else
-      all.includes(:comments, :tags, :answers).order(updated_at: :desc).limit(10)
+      all.includes(:comments, :tags, :answers).order(updated_at: :desc)
     end
   end
 end
