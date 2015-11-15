@@ -1,12 +1,14 @@
-<div class="body-outer">
-  <h3>Edit the form below and watch the answers roll in!</h3>
-  <div class="body-inner">
-    <%= flash[:errors] %>
-    <%= form_for @question do |f| %>
-    <div><%= f.text_field :title, :value => "#{@question.title}", size: "50" %></div>
-    <div><%= f.text_area :body, :value => "#{@question.body}", size: "50x12" %></div>
-    <div><%= f.text_field :tags, :value => "#{@question.tags.map {|tag| tag.description}.join(', ')}", :size => 50 %></div>
-    <div><%= f.submit "Stack Tell Me So!" %></div>
-    <% end %>
+<div class="content-card">
+  <div class="body-outer">
+    <h3>Edit the form below and watch the answers roll in!</h3>
+    <div class="body-inner">
+      <%= flash[:errors] %>
+      <%= form_for @question do |f| %>
+      <div><%= f.text_field :title, :value => "#{@question.title}", size: "50" %></div>
+      <div><%= f.text_area :body, :value => "#{@question.body}", size: "50x12" %></div>
+      <div><%= f.text_field :tags, :value => "#{@question.tags.map {|tag| tag.description}.join(', ')}", :size => 50 %></div>
+      <div><%= f.submit "Stack Tell Me So!" %></div>
+      <% end %>
+    </div>
   </div>
 </div>

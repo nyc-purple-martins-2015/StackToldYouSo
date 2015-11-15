@@ -1,6 +1,12 @@
-<h1>Your questions: </h1>
-<% @user.questions.each do |question| %>
-  <ul>
-    <li><%= link_to "#{question.title}", question_path(question) %> <%= link_to "Edit", edit_question_path(question.id) %></li>
-  </ul>
-  <% end %>
+<div class="content-card">
+  <div class="body-outer">
+    <h1>Your questions: </h1>
+    <div class="inner-body">
+      <% @user.questions.each do |question| %>
+      <ul>
+        <li><%= link_to "#{question.title}", question_path(question) %></li>
+      </ul>
+      <% end %>
+    </div>
+  </div>
+</div>
