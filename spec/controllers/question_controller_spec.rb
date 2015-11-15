@@ -39,6 +39,25 @@ RSpec.describe QuestionsController do
       }.to change(Tag, :count).by(3)
     end
   end
+
+  it "#edit/:id" do
+    get :edit, :id => sample_question.id, :question => sample_question
+    expect(assigns(:question)).to eq(sample_question)
+  end
+
+  context "#update/:id" do
+    let(:new_attr) do
+      { :title => 'new title', :body => 'new body' }
+    end
+
+    before(:each) do
+      put :update, :id => sample_question.id, :question => new_attr
+      sample_question.reload
+    end
+
+    it { expect(sample_question.title).to eql new_attr[:title] }
+    it { expect(sample_question.body).to eql new_attr[:body] }
+  end
 end
 
 
