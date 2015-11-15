@@ -1,5 +1,6 @@
 body {
   font-family: 'Montserrat', sans-serif;
+  background-color: #E8E8E8;
 }
 
 a:link {
@@ -40,6 +41,7 @@ a:hover {
 }
 
 .show-body-inner {
+  padding-left: 12px;
   text-align: left;
   display: inline-block;
 
@@ -55,7 +57,7 @@ a:hover {
 }
 
 #question-body {
-  text-align: right;
+  text-align: center;
   /*padding-left: 40px;*/
 }
 
@@ -73,6 +75,7 @@ a:hover {
   margin-right: auto;
   margin-left: auto;
   margin-top: 3em;
+  background-color: white;
 }
 
 .question-stats {
@@ -89,8 +92,15 @@ a:hover {
   margin-right: 15px;
 }
 
-.tag {
+a.tag {
+  padding: 2px;
   background-color: #0C90A2;
+  color: white;
+  border-radius: 5px;
+}
+
+.tags-list{
+  padding: 5px;
 }
 
 .answer-list {
@@ -121,6 +131,37 @@ input[type="image"]
   text-align: center;
   padding: 20px;
 }
+
+input[type=submit] {
+  background-color: #0C90A2;
+  border-radius: 5px;
+  border:0 none;
+  width: 125px;
+  height: 20px;
+  font-family: 'Montserrat';
+}
+
+input[type=submit]:hover {
+box-shadow: 0px 2px 5px #888888;
+}
+
+.list-title {
+  font-size: 30pt;
+  padding: 15px;
+  border-radius: 15px;
+  color: #1C3064;
+  text-shadow: 0px 2px 5px #888888;
+}
+
+.list-title-holder {
+  padding-bottom: 30px;
+}
+
+/*.recent-questions {
+box-shadow: inset 3px 3px 8px 3px rgba(0,0,0,0.75);
+padding: 15px;
+border-radius: 40px;
+}*/
 
 .answer-input-title {
   padding-right: 35px;
