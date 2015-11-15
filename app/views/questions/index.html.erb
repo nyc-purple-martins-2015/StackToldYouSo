@@ -11,10 +11,12 @@
   </span>
   </div>
   <div class="body-inner" class="recent-questions">
-    <%@questions.each do |question|%>
-    <div class="recent-questions">
-    <%= render partial:'link', layout:false, locals: {question: question} %>
+    <div class="index-container-padding">
+      <%@questions.each do |question|%>
+      <div class="recent-questions">
+      <%= render partial:'link', layout:false, locals: {question: question} %>
+      </div>
+    <%end%>
     </div>
-  <%end%>
   </div>
 </div>

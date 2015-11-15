@@ -7,9 +7,13 @@
     <span class="answer-count"><%=question.answers.count%> Answers</span>
   </div>
   <div class= "tags-list"><b>Tags:</b></div>
+  <% if question.tags.empty? %>
+    <a href ="" class="tag"> No associated tags</a>
+    <% else %>
   <%question.tags.each do |tag| %>
     <%= render partial:'tags/link', layout:false, locals: {tag: tag} %>
   <%end%>
-  <p><span>Question Posted by: <%=question.user.username%>, <%= time_since_created(question)%></span></p>
+  <% end %>
+  <p><span class="index-page-time">Question Posted by: <%=question.user.username%>, <%= time_since_created(question)%></span></p>
   <p><span class="time-update">Last Updated <%= time_since_updated(question)%></span></p>
 </div>
