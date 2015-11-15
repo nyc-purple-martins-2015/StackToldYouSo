@@ -20,23 +20,14 @@ class ApplicationController < ActionController::Base
 
   def parse_tags(question, question_tag_params)
     tags = question_tag_params[:tags].split(/[-,\/]/)
-    tags.each do |tag|
-      new_tag = Tag.find_or_create_by(description: tag.strip)
-      unless question.tags.include?(new_tag)
-        question.tags << new_tag
-      end
-    end
-  end
-
-  def update_tags(question, question_tag_params)
-    tags = question_tag_params[:tags].split(/[-,\/]/)
-    tags.map! { |tag| Tag.find_or_create_by(description: tag.strip) }
+        tags.map! { |tag| Tag.find_or_create_by(description: tag.strip) }
     tags = tags.uniq
-    question.tags.clear
+    question.tags.clear unless question.tags.empty?
     tags.each do |tag|
       question.tags << tag
     end
   end
+
 
   def authorize_user!
     redirect_to new_session_path unless current_user.present?
