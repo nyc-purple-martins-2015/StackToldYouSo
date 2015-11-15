@@ -36,7 +36,10 @@
    <div id="question-body">
     <%= @question.body %>
   </div>
-
+  <% if current_user.id == @question.user_id %>
+    <div class="question-edit-button"><button name="button" type="submit">Edit</button></div>
+    <div class="question-delete-button"><button name="button" type="submit">Delete</button></div>
+  <% end %>
 
 <div class="show-body-inner">
 
