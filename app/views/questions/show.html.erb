@@ -37,8 +37,8 @@
     <%= @question.body %>
   </div>
   <% if current_user.id == @question.user_id %>
-    <div class="question-edit-button"><button name="button" type="submit">Edit</button></div>
-    <div class="question-delete-button"><button name="button" type="submit">Delete</button></div>
+    <div class="question-edit-button"><button name="button" type="submit"><%= link_to "Edit", edit_question_path(@question.id) %></button></div>
+    <div class="question-delete-button"><%= button_to "Delete", { action: "destroy", id: @question.id }, method: :delete %></div>
   <% end %>
 
 <div class="show-body-inner">

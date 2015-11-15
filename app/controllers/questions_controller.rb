@@ -39,6 +39,17 @@ class QuestionsController < ApplicationController
     end
   end
 
+  def destroy
+    @question = Question.includes(:answers, :question_tags,:comments).find(params[:id])
+    Answer.destroy_all(:question_id => @question.id)
+    Comment.destroy_all(:commentable_id => @question.id, commentable_type: "Question")
+    QuestionTag.destroy_all(:question_id => @question.id)
+    # @question.answers.each { |answer| answer.destroy }
+    # @question.tags.each { |tag| tag.destroy }
+    @question.destroy
+    redirect_to user_path(@question.user_id)
+  end
+
   private
 
   def question_params
