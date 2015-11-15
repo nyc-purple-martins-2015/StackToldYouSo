@@ -53,7 +53,6 @@ feature 'Visitor browsing the page that hosts the question' do
       visit root_path
       click_link "#{@new_question.title}"
       expect(page).to have_content("Add an Answer")
-      # save_and_open_page
     end
 
   end
