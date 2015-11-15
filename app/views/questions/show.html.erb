@@ -13,9 +13,9 @@
       <% end %>
 
       <!-- QUESTION VOTE TOTAL -->
-      <% if logged_in? %>
+
       <span><%= @question.vote_count %></span>
-      <% end %>
+
 
       <!-- DOWNVOTE FORM -->
       <% if logged_in? && already_voted?(current_user, @question)%>
