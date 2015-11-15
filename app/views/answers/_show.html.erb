@@ -4,7 +4,7 @@
   </span>
 
   <span class="comment-vote-buttons">
-    <% if logged_in? %>
+    <% if logged_in? && already_voted?(current_user, answer)%>
     <!-- UPVOTE FORM -->
     <span class="voter">
       <%= form_for Vote.new do |f| %>
@@ -12,11 +12,13 @@
       <%= f.submit :type => :image, :src => "/imgs/thumbsup.png" %>
       <% end %>
     </span>
+    <% end %>
 
     <!-- ANSWER VOTE TOTAL -->
     <span><%= answer.vote_count %></span>
 
     <!-- DOWNVOTE FORM -->
+    <% if logged_in? && already_voted?(current_user, answer)%>
     <span class="voter">
       <%= form_for Vote.new do |f| %>
       <%= render partial: 'votes/create', layout: false, locals: {f: f, remark: answer, value: -1 } %>
