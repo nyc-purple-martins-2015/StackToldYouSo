@@ -14,6 +14,9 @@ RSpec.describe AnswersController do
       }.to change(Answer, :count).by(1)
     end
     it 'does not create a new question with invalid params' do
+      expect{
+        post :create, answer: {note: "Test answer", question_id: @question.id}
+      }.to_not change(Answer, :count)
     end
   end
 end
