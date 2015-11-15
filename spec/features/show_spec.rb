@@ -3,7 +3,8 @@ require 'spec_helper'
 feature 'Visitor browsing the page that hosts the question' do
   before(:each) do
     @user = FactoryGirl.create(:user)
-    @new_question =  FactoryGirl.create(:question)
+    @new_question =  Question.new(title: "This is the title of a question", body: "Body of the question", user_id: @user.id)
+    @new_question.save
     visit root_path
     click_link "#{@new_question.title}"
   end
