@@ -10,7 +10,7 @@ RSpec.describe AnswersController do
   context '#create' do
     it 'creates a new answer with valid params' do
       expect{
-        post :create, answer: FactoryGirl.attributes_for(:answer)
+        post :create, answer: {content: "Test answer", question_id: @question.id}
       }.to change(Answer, :count).by(1)
     end
     it 'does not create a new question with invalid params' do
