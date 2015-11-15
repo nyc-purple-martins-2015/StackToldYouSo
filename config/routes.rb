@@ -22,6 +22,8 @@ Rails.application.routes.draw do
   get 'login' => 'sessions#new', as: :login
   post 'session_create' => 'sessions#create', as: :session_create
 
+  delete 'questions/:id' => 'questions#destroy'
+
   post 'comments' => 'comments#create'
 
   post 'answers' => 'answers#create'
