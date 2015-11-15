@@ -43,7 +43,9 @@ feature 'Visitor browsing the index' do
     end
 
     it 'can visit a question show page by clicking the title' do
-      sample_question = FactoryGirl.create(:question)
+      sample_user = FactoryGirl.create(:user)
+      sample_question = Question.new(title: "This is the title of a sample question", body: "Body of the sample question", user_id: sample_user.id)
+      sample_question.save
       visit root_path
       click_link "#{sample_question.title}"
       expect(page).to have_content("#{sample_question.body}")
