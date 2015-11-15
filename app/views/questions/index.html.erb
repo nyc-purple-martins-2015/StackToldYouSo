@@ -5,10 +5,16 @@
 </div>
 
 <div class="body-outer">
-  <h1>Welcome to Stack Told You So!</h1>
+  <div class="list-title-holder">
+  <span class="list-title">
+    Welcome to Stack Told You So!
+  </span>
+  </div>
   <div class="body-inner" class="recent-questions">
     <%@questions.each do |question|%>
+    <div class="recent-questions">
     <%= render partial:'link', layout:false, locals: {question: question} %>
+    </div>
   <%end%>
   </div>
 </div>
