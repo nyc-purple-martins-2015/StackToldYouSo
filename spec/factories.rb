@@ -18,7 +18,6 @@ FactoryGirl.define do
 
   factory(:comment) do
     note {Faker::Lorem.sentence}
-    user
 
     factory(:question_comment) do
       association :commentable, factory: :question
@@ -28,6 +27,7 @@ FactoryGirl.define do
       association :commentable, factory: :answer
     end
 
+    user
   end
 
   factory(:vote) do
