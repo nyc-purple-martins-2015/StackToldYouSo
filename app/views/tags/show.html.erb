@@ -1,5 +1,10 @@
-<h1>All questions tagged with <%=@tag.description%></h1>
-
-<% @tag.questions.order(updated_at: :desc).each do |question| %>
-  <%= render partial:'questions/link', layout:false, locals: {question: question} %>
-<% end %>
+<div class="body-outer">
+  <div class="list-title">All questions tagged with <%=@tag.description%></div>
+  <div class="body-inner">
+    <div class="content-card">
+      <% @tag.questions.order(updated_at: :desc).each do |question| %>
+        <%= render partial:'questions/link', layout:false, locals: {question: question} %>
+      <% end %>
+    </div>
+  </div>
+</div>

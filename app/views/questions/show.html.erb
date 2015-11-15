@@ -44,7 +44,7 @@
 <div class="show-body-inner">
 
     <p class="question-author"><span>Question Posted by: <%=@question.user.username%>, <%= time_since_created(@question)%></span></p>
-    <p><span>Last Updated <%= time_since_updated(@question)%></span></p>
+    <p><span class="question-time">Last Updated <%= time_since_updated(@question)%></span></p>
 
 
     <span class="tags-list"><b>Tags: </b></span>

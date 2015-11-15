@@ -166,3 +166,14 @@ border-radius: 40px;
 .answer-input-title {
   padding-right: 35px;
 }
+
+.question-author {
+  font-size: 8pt;
+  padding-left: 190px;
+}
+
+.question-time {
+  font-size: 8pt;
+  padding-left: 275px;
+  color: white;
+}
