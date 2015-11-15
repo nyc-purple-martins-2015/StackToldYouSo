@@ -14,7 +14,7 @@ class Question < ActiveRecord::Base
 
   def self.search(search)
     if search
-      where('title LIKE ?', "%#{search}%").includes(:comments, :tags, :answers).order(updated_at: :desc)
+      where('title LIKE ? OR body LIKE ?', "%#{search}%", "%#{search}%").includes(:comments, :tags, :answers).order(updated_at: :desc)
     else
       all.includes(:comments, :tags, :answers).order(updated_at: :desc).limit(10)
     end
