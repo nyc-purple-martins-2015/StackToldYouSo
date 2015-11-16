@@ -46,9 +46,17 @@ RSpec.describe QuestionsController do
   end
 
   context "#update/:id" do
-    let(:new_attr) do
-      { :title => 'new title', :body => 'new body' }
-    end
+#    def let(name, &block)
+#      # do stuff
+#      # and then invoke the block
+#      block.call(args....)
+#    end
+#
+#    let(:new_attr) { FactoryGirl.attributes_for(:derp) }
+#    
+#    do
+#      {title: 'new title', body: 'new body'}
+#    end
 
     before(:each) do
       put :update, :id => sample_question.id, :question => new_attr

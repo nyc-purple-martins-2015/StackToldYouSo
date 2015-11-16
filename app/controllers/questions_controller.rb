@@ -14,8 +14,10 @@ class QuestionsController < ApplicationController
 
   def create
     question = current_user.questions.build(question_params)
+    tag_descriptions = params[:tags].split(/[-,\/]/)
     if question.save
-      parse_tags(question, question_tag_params) unless question_tag_params.empty?
+      params
+      question.parse_tags(tag_descriptions) unless question_tag_params.empty?
       redirect_to question_path(question)
     else
       flash[:errors] = "Please try posting your question again!"
@@ -31,7 +33,17 @@ class QuestionsController < ApplicationController
     @question = Question.find(params[:id])
     @question.assign_attributes(question_params)
     if @question.save
-      parse_tags(@question, question_tag_params) unless question_tag_params.empty?
+      # This is a classic "miss" in terms of OO.  In the original
+      # implementation you were finding a question, and then passing that
+      # question to some random-ass function that wasn't owned by a model.
+      #
+      # We asked, who is the thing that does the thinking.  Who is it who has
+      # the responsibility for managing the life and times of a Question?
+      # Well, a Question class does!  So we moved parse_tags to be a
+      # responsibility of a Question.  In so doing we honor the SINGLE
+      # RESPONSIBILITY PRINCIPLE of SOLID.  Who manages the concerns about
+      # questions?  The QUESTION class does.  This is the heart of OO>
+      question.parse_tags(question_tag_params) unless question_tag_params.empty?
       redirect_to user_path(@question.user_id)
     else
       flash[:errors] = "Please try editing your question again!"
@@ -41,9 +53,7 @@ class QuestionsController < ApplicationController
 
   def destroy
     @question = Question.includes(:answers, :question_tags,:comments).find(params[:id])
-    Answer.destroy_all(:question_id => @question.id)
-    Comment.destroy_all(:commentable_id => @question.id, commentable_type: "Question")
-    QuestionTag.destroy_all(:question_id => @question.id)
+    # You can set up dependent destroy on question and it will do 
     @question.destroy
     redirect_to user_path(@question.user_id)
   end

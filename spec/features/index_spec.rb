@@ -1,4 +1,23 @@
+=begin comment
+
+In my opinion, feature tests are usually best used for testing flows.  You are
+trying to test across multiple page loads whether something happens.  You want
+to probably bias to writing controller tests first, model tests second, and
+feature tests last.
+
+For example, a good "flow" to watch would be signup and unsubscribe.  Or
+process payments, you care very much about whether those flows work.  Also,
+keep in mind when you use css selectors or class names or id names, you're
+making the test kind of brittle because what if your new hot shot flat design
+guru UX expert comes out and tells you this whole semantic markup fad something
+and makes you rename everyihgnn, you don't want your tests to break because of
+structural changes to html.
+
+
+=end
+
 require 'spec_helper'
+require 'rails_helper'
 
 feature 'Visitor browsing the index' do
   context 'on questions#index page' do

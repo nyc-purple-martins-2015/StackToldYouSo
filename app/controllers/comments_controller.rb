@@ -2,6 +2,8 @@ class CommentsController < ApplicationController
   def create
     comment = Comment.new(comment_params)
     if comment.save
+      # polymorphic paths are a thing and they can do some of this work for you.
+      # consider whether this might fit in.
       if comment.commentable_type == "Answer"
         redirect_to question_path(comment.commentable.question_id)
       else

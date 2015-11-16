@@ -7,6 +7,7 @@ module ApplicationHelper
     !!current_user
   end
 
+  # Seems like this could go on a model...
   def already_voted?(user, remark)
     return true if user.votes.where(votable_id: remark.id).empty?
   end
